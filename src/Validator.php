@@ -139,6 +139,10 @@ class Validator
      */
     public function translate(string $message, $args = []): string
     {
+        if (!is_array($args)) {
+            $args = array_slice(func_get_args(), 1);
+        }
+        
         return $this->lang->trd($message, $this->langDomain, $args);
     }
 
