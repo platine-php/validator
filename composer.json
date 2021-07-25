@@ -52,7 +52,10 @@
             "dev-develop": "1.0.x-dev"
         },
         "platine": {
-            "lang": ["lang/"]
+            "lang": [
+                "lang/en_US",
+                "lang/fr_FR"
+            ]
         }
     },
 
