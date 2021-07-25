@@ -67,7 +67,7 @@ class Number implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be a number!',
             $validator->getLabel($field)
         );

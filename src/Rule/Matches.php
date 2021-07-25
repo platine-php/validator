@@ -83,7 +83,7 @@ class Matches implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be identical to field %s!',
             $validator->getLabel($field),
             $validator->getLabel($this->field)

@@ -85,7 +85,7 @@ class Max implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be less or equal to [%s]!',
             $validator->getLabel($field),
             $this->value

@@ -76,7 +76,7 @@ class AlphaDash implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must contain alphabetic characters, - and _',
             $validator->getLabel($field)
         );

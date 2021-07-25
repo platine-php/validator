@@ -76,8 +76,8 @@ class Alpha implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
-            '%s must contain alphabetic characters!',
+        return $validator->translate(
+            '%s must contain alphabetic characters',
             $validator->getLabel($field)
         );
     }

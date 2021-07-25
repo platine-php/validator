@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Platine\Test\Validator;
 
-use Platine\Validator\Validator;
-use Platine\Validator\Rule\NotEmpty;
+use Platine\Dev\PlatineTestCase;
+use Platine\Lang\Lang;
 use Platine\Validator\Exception\ValidatorException;
-use Platine\PlatineTestCase;
+use Platine\Validator\Rule\NotEmpty;
+use Platine\Validator\Validator;
 
 /**
  * Validator class tests
@@ -18,11 +19,21 @@ use Platine\PlatineTestCase;
 class ValidatorTest extends PlatineTestCase
 {
 
+    public function testConstructor(): void
+    {
+        $lang = $this->getMockInstance(Lang::class, []);
+        $v = new Validator($lang);
+
+        $this->assertInstanceOf(Lang::class, $v->getLang());
+        $this->assertEquals($lang, $v->getLang());
+    }
+
     public function testSetGetData(): void
     {
+        $lang = $this->getMockInstance(Lang::class, []);
         $data = $this->getDefaultValidationData();
 
-        $v = new Validator();
+        $v = new Validator($lang);
 
         $this->assertEmpty($v->getData());
 
@@ -35,7 +46,8 @@ class ValidatorTest extends PlatineTestCase
 
     public function testSetGetLabel(): void
     {
-        $v = new Validator();
+        $lang = $this->getMockInstance(Lang::class, []);
+        $v = new Validator($lang);
 
         $this->assertEquals('foo bar', $v->getLabel('foo_bar'));
         $this->assertEquals('foo bar', $v->getLabel('foo-bar'));
@@ -46,7 +58,8 @@ class ValidatorTest extends PlatineTestCase
 
     public function testAddFilters(): void
     {
-        $v = new Validator();
+        $lang = $this->getMockInstance(Lang::class, []);
+        $v = new Validator($lang);
         $reflection = $this->getPrivateProtectedAttribute(Validator::class, 'filters');
 
         $this->assertEmpty($reflection->getValue($v));
@@ -67,7 +80,8 @@ class ValidatorTest extends PlatineTestCase
 
     public function testAddRules(): void
     {
-        $v = new Validator();
+        $lang = $this->getMockInstance(Lang::class, []);
+        $v = new Validator($lang);
 
         $this->assertEmpty($v->getRules());
 
@@ -96,7 +110,8 @@ class ValidatorTest extends PlatineTestCase
 
     public function testGetRules(): void
     {
-        $v = new Validator();
+        $lang = $this->getMockInstance(Lang::class, []);
+        $v = new Validator($lang);
 
         $this->assertEmpty($v->getRules());
 
@@ -116,7 +131,8 @@ class ValidatorTest extends PlatineTestCase
 
     public function testValidate(): void
     {
-        $v = new Validator();
+        $lang = $this->getMockInstance(Lang::class, []);
+        $v = new Validator($lang);
 
         //Success
         $data = $this->getDefaultValidationData();

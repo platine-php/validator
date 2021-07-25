@@ -82,7 +82,7 @@ class Equal implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must to be equal to [%s]!',
             $validator->getLabel($field),
             $this->value

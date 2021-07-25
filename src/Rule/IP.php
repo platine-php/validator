@@ -67,7 +67,7 @@ class IP implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be a valid ip address!',
             $validator->getLabel($field)
         );

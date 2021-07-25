@@ -82,7 +82,7 @@ class NotEqual implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must not to be equal to [%s]!',
             $validator->getLabel($field),
             $this->value

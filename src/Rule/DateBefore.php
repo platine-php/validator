@@ -82,7 +82,7 @@ class DateBefore implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be before the date [%s]!',
             $validator->getLabel($field),
             $this->date

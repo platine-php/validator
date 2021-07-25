@@ -46,11 +46,12 @@ declare(strict_types=1);
 
 namespace Platine\Validator;
 
+use Platine\Lang\Lang;
 use Platine\Validator\Exception\ValidatorException;
 
 /**
  * A Validator contains a set of validation rules and
- * associated metadata for ensuring that a given dataset
+ * associated metadata for ensuring that a given data set
  * is valid and returned correctly.
  */
 class Validator
@@ -58,31 +59,31 @@ class Validator
 
     /**
      * The data to validate
-     * @var array
+     * @var array<string, mixed>
      */
     protected array $data = [];
 
     /**
      * The field labels
-     * @var array
+     * @var array<string, string>
      */
     protected array $labels = [];
 
     /**
      * The filters to use to filter validation data
-     * @var array
+     * @var array<string, callable[]>
      */
     protected array $filters = [];
 
     /**
      * The validate rules
-     * @var array
+     * @var array<string, RuleInterface[]>
      */
     protected array $rules = [];
 
     /**
      * The validate errors
-     * @var array
+     * @var array<string, string>
      */
     protected array $errors = [];
 
@@ -92,15 +93,59 @@ class Validator
      */
     protected bool $valid = false;
 
-    public function __construct()
+    /**
+     * The validation language domain to use
+     * @var string
+     */
+    protected string $langDomain;
+
+    /**
+     * The language to use
+     * @var Lang
+     */
+    protected Lang $lang;
+
+
+    /**
+     * Create new instance
+     * @param Lang $lang
+     * @param string $langDomain
+     */
+    public function __construct(Lang $lang, string $langDomain = 'validators')
     {
+        $this->lang = $lang;
+        $this->langDomain = $langDomain;
+
+        //Add the domain for the validator
+        $this->lang->addDomain($langDomain);
+
         $this->reset();
     }
 
     /**
-     * Reset the validator instance
+     * Return the language instance
+     * @return Lang
+     */
+    public function getLang(): Lang
+    {
+        return $this->lang;
+    }
+
+    /**
+     * Translation a single message
+     * @param string $message
+     * @param array<int, mixed>|mixed $args
+     * @return string
+     */
+    public function translate(string $message, $args = []): string
+    {
+        return $this->lang->trd($message, $this->langDomain, $args);
+    }
+
+    /**
+     * Reset the validation instance
      *
-     * @return self
+     * @return $this
      */
     public function reset(): self
     {
@@ -116,9 +161,9 @@ class Validator
 
     /**
      * Set the validation data
-     * @param array $data the data to be validated
+     * @param array<string, mixed> $data the data to be validated
      *
-     * @return self
+     * @return $this
      */
     public function setData(array $data): self
     {
@@ -156,7 +201,7 @@ class Validator
      * @param string $field
      * @param string $label
      *
-     * @return self
+     * @return $this
      */
     public function setLabel(string $field, string $label): self
     {
@@ -184,7 +229,7 @@ class Validator
      * @param string $field
      * @param callable $filter
      *
-     * @return self
+     * @return $this
      */
     public function addFilter(string $field, callable $filter): self
     {
@@ -199,9 +244,9 @@ class Validator
     /**
      * Add a list of filter for the given field
      * @param string $field
-     * @param array $filters
+     * @param callable[] $filters
      *
-     * @return self
+     * @return $this
      */
     public function addFilters(string $field, array $filters): self
     {
@@ -220,7 +265,7 @@ class Validator
      * @param string $field
      * @param RuleInterface $rule
      *
-     * @return self
+     * @return $this
      */
     public function addRule(string $field, RuleInterface $rule): self
     {
@@ -238,9 +283,9 @@ class Validator
     /**
      * Add a list of rules for the given field
      * @param string $field
-     * @param array $rules the array of RuleInterface
+     * @param RuleInterface[] $rules the array of RuleInterface
      *
-     * @return self
+     * @return $this
      */
     public function addRules(string $field, array $rules): self
     {
@@ -261,7 +306,7 @@ class Validator
      * Return all currently defined rules
      * @param string $field if set will return only for this field
      *
-     * @return array
+     * @return RuleInterface[]|array<string, RuleInterface[]>
      */
     public function getRules(?string $field = null): array
     {
@@ -272,7 +317,7 @@ class Validator
 
     /**
      * Validate the data
-     * @param  array  $data
+     * @param  array<string, mixed>  $data
      * @return bool       the validation status
      */
     public function validate(array $data = []): bool
@@ -290,7 +335,7 @@ class Validator
 
     /**
      * Return the validation errors
-     * @return array the validation errors
+     * @return array<string, string> the validation errors
      *
      * @example array(
      *          'field1' => 'message 1',
@@ -304,7 +349,7 @@ class Validator
 
     /**
      * Process to validation of fields rules
-     * @return array the validation errors
+     * @return array<string, string> the validation errors
      */
     protected function validateRules(): array
     {
@@ -326,8 +371,8 @@ class Validator
     /**
      * Validate the rules for the given field
      * @param  string $field
-     * @param  array  $rules the array of rules
-     * @return array     array(Status, error)
+     * @param  RuleInterface[]  $rules the array of rules
+     * @return array<mixed>     array(Status, error)
      */
     protected function validateFieldRules(string $field, array $rules): array
     {
@@ -347,7 +392,7 @@ class Validator
      * @param  string $field
      * @param  mixed $value
      * @param  RuleInterface  $rule the rule instance to validate
-     * @return array     array(Status, error)
+     * @return array<mixed>     array(Status, error)
      */
     protected function validateRule(string $field, $value, RuleInterface $rule): array
     {
@@ -360,7 +405,7 @@ class Validator
 
     /**
      * Apply any defined filters to the validation data
-     * @return array the filtered data
+     * @return array<string, mixed> the filtered data
      */
     protected function applyFilters(): array
     {
@@ -388,7 +433,7 @@ class Validator
     }
 
     /**
-     * Humaize the given field
+     * Humanize the given field
      * @param  string $field
      *
      * @return string

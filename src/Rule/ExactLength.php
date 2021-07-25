@@ -85,7 +85,7 @@ class ExactLength implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must contain exactly %d characters!',
             $validator->getLabel($field),
             $this->length

@@ -67,7 +67,7 @@ class IPv6 implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be a valid IPv6 address!',
             $validator->getLabel($field)
         );

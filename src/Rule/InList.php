@@ -54,13 +54,13 @@ class InList implements RuleInterface
 
     /**
      * The list to match
-     * @var array
+     * @var array<mixed>
      */
     protected array $list;
 
     /**
      * Constructor
-     * @param array $list
+     * @param array<mixed> $list
      */
     public function __construct(array $list)
     {
@@ -82,10 +82,10 @@ class InList implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be one of the following (%s)!',
             $validator->getLabel($field),
-            implode($this->list)
+            implode(', ', $this->list)
         );
     }
 }

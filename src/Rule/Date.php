@@ -83,7 +83,7 @@ class Date implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must contain a correct date format [%s]!',
             $validator->getLabel($field),
             $this->format

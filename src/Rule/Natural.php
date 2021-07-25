@@ -70,7 +70,7 @@ class Natural implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be a natural number (0, 1, 2, )!',
             $validator->getLabel($field)
         );

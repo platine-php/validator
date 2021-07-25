@@ -70,7 +70,7 @@ class NotEmpty implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must not to be empty!',
             $validator->getLabel($field)
         );

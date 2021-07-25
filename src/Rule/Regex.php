@@ -82,7 +82,7 @@ class Regex implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s does not use the correct format!',
             $validator->getLabel($field)
         );

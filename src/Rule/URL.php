@@ -67,7 +67,7 @@ class URL implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
-        return sprintf(
+        return $validator->translate(
             '%s must be a valid URL!',
             $validator->getLabel($field)
         );
