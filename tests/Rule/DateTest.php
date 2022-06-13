@@ -62,6 +62,7 @@ class DateTest extends PlatineTestCase
             array('Y-m-d', '2019-10-19', true),
             array('Y', '2020', true),
             array('Ymd', '20110101', true),
+            array('Ymd', '', true),
         );
     }
 }

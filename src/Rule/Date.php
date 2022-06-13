@@ -73,6 +73,9 @@ class Date implements RuleInterface
      */
     public function validate(string $field, $value, Validator $validator): bool
     {
+		if (empty($value)) {
+            return true;
+        }
         $dateValue = date_create_from_format($this->format, (string) $value);
         return $dateValue !== false && $dateValue->format($this->format) === (string) $value;
     }
