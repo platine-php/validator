@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class MinLengthTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

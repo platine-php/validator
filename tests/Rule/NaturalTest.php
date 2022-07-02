@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class NaturalTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

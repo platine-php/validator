@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Natural implements RuleInterface
 {
-
     /**
      * {@inheritdoc}
      * @see RuleInterface

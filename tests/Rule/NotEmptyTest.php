@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class NotEmptyTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

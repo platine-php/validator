@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Date implements RuleInterface
 {
-
     /**
      * The date format to validate
      * @var string
@@ -73,7 +72,7 @@ class Date implements RuleInterface
      */
     public function validate(string $field, $value, Validator $validator): bool
     {
-		if (empty($value)) {
+        if (empty($value)) {
             return true;
         }
         $dateValue = date_create_from_format($this->format, (string) $value);

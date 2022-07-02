@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Regex implements RuleInterface
 {
-
     /**
      * The regex pattern
      * @var string

@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class IP implements RuleInterface
 {
-
     /**
      * {@inheritdoc}
      * @see RuleInterface

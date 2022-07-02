@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class IntegerTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

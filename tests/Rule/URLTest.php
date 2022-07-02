@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class URLTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

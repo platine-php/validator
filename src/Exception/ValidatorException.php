@@ -34,5 +34,4 @@ namespace Platine\Validator\Exception;
 
 class ValidatorException extends \Exception
 {
-
 }

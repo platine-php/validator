@@ -18,7 +18,6 @@ use Platine\Validator\Validator;
  */
 class ValidatorTest extends PlatineTestCase
 {
-
     public function testConstructor(): void
     {
         $lang = $this->getMockInstance(Lang::class, []);

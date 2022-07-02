@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class DateAfter implements RuleInterface
 {
-
     /**
      * The date to compare against
      * @var string

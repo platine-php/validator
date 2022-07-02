@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class ExactLengthTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

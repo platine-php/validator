@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class MaxLengthTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

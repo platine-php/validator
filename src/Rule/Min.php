@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Min implements RuleInterface
 {
-
     /**
      * Value to compare against
      * @var mixed

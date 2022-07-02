@@ -52,7 +52,6 @@ namespace Platine\Validator;
  */
 interface RuleInterface
 {
-
     /**
      * Method to validate this Rule
      *

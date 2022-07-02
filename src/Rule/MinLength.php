@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class MinLength implements RuleInterface
 {
-
     /**
      * The length
      * @var int

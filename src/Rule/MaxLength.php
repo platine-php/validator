@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class MaxLength implements RuleInterface
 {
-
     /**
      * The length
      * @var int

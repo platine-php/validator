@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class DateBeforeTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

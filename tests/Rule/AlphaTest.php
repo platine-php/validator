@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class AlphaTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

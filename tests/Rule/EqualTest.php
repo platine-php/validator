@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class EqualTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

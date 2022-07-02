@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class NotMatches implements RuleInterface
 {
-
     /**
      * Field to compare against
      * @var string

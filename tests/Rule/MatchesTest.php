@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class MatchesTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

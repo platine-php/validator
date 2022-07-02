@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class NotEqual implements RuleInterface
 {
-
     /**
      * Value to compare against
      * @var mixed

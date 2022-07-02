@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class IPv6 implements RuleInterface
 {
-
     /**
      * {@inheritdoc}
      * @see RuleInterface

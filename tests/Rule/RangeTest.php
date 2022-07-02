@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class RangeTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

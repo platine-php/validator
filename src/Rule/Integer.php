@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Integer implements RuleInterface
 {
-
     /**
      * {@inheritdoc}
      * @see RuleInterface

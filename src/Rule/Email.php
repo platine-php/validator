@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Email implements RuleInterface
 {
-
     /**
      * {@inheritdoc}
      * @see RuleInterface

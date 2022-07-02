@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class RegexTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

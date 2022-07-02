@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class IPv6Test extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

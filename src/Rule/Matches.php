@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Matches implements RuleInterface
 {
-
     /**
      * Field to compare against
      * @var string

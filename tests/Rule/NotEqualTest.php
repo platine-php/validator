@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class NotEqualTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

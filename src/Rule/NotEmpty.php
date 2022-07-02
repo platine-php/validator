@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class NotEmpty implements RuleInterface
 {
-
     /**
      * {@inheritdoc}
      * @see RuleInterface

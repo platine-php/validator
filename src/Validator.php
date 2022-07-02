@@ -56,7 +56,6 @@ use Platine\Validator\Exception\ValidatorException;
  */
 class Validator
 {
-
     /**
      * The data to validate
      * @var array<string, mixed>
@@ -142,7 +141,7 @@ class Validator
         if (!is_array($args)) {
             $args = array_slice(func_get_args(), 1);
         }
-        
+
         return $this->lang->trd($message, $this->langDomain, $args);
     }
 

@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class InList implements RuleInterface
 {
-
     /**
      * The list to match
      * @var array<mixed>

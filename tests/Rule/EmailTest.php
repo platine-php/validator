@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class EmailTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *

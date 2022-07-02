@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class ExactLength implements RuleInterface
 {
-
     /**
      * The length
      * @var int

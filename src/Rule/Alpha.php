@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class Alpha implements RuleInterface
 {
-
     /**
      * String pattern to allow
      * @var string

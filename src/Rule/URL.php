@@ -51,7 +51,6 @@ use Platine\Validator\Validator;
 
 class URL implements RuleInterface
 {
-
     /**
      * {@inheritdoc}
      * @see RuleInterface

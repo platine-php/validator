@@ -17,7 +17,6 @@ use Platine\Dev\PlatineTestCase;
  */
 class IPTest extends PlatineTestCase
 {
-
     /**
      * test Validate method
      *
