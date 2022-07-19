@@ -57,6 +57,9 @@ class Natural implements RuleInterface
      */
     public function validate(string $field, $value, Validator $validator): bool
     {
+		if (empty($value)) {
+            return true;
+        }
         if (filter_var($value, FILTER_VALIDATE_INT) === false) {
             return false;
         }

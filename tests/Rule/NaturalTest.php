@@ -61,6 +61,7 @@ class NaturalTest extends PlatineTestCase
             array(98, true),
             array(0, true),
             array('14', true),
+            array('', true),
         );
     }
 }
