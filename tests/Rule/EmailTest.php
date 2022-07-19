@@ -60,6 +60,7 @@ class EmailTest extends PlatineTestCase
             array('gghhghg@gm@il.com', false),
             array('eamil@domain.com', true),
             array('e@f.c', true),
+            array('', true),
         );
     }
 }
