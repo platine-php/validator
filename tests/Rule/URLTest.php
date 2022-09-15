@@ -58,6 +58,7 @@ class URLTest extends PlatineTestCase
             array('ftp://myhost.com', true),
             array('ftp://user@pass/host.com', true),
             array('ftp://user@pass:231/host.com', true),
+            array('', true),
         );
     }
 }
