@@ -23,11 +23,12 @@ class DateBeforeTest extends PlatineTestCase
      * @dataProvider validationDataProvider
      *
      * @param  mixed $param
+     * @param  bool $include
      * @param  mixed $value
      * @param  mixed $expectedResult
      * @return void
      */
-    public function testValidate($param, $value, $expectedResult): void
+    public function testValidate($param, bool $include, $value, $expectedResult): void
     {
         $field = 'name';
 
@@ -38,7 +39,7 @@ class DateBeforeTest extends PlatineTestCase
 
 
 
-        $o = new DateBefore($param);
+        $o = new DateBefore($param, $include);
 
         $this->assertEquals($expectedResult, $o->validate($field, $value, $validator));
 
@@ -54,13 +55,15 @@ class DateBeforeTest extends PlatineTestCase
     public function validationDataProvider(): array
     {
         return array(
-            array('1990-2-1', '1990-3-1', false),
-            array('1990-2-1', '1990-3-1', false),
-            array('1990-2-1', '1-1-1992', false),
-            array('2020-2-1', '2020-1-31', true),
-            array('2020-2-1', '2020-1-1 00:00:01', true),
-            array('2011-2-1', '2011-1', true),
-            array('2011-2-1', '21021991', true),
+            array('1990-2-1', false, '1990-3-1', false),
+            array('1990-2-1', false, '1990-2-1', false),
+            array('1990-2-1', true, '1990-2-1', true),
+            array('1990-2-1', false, '1990-3-1', false),
+            array('1990-2-1', false, '1-1-1992', false),
+            array('2020-2-1', false, '2020-1-31', true),
+            array('2020-2-1', false, '2020-1-1 00:00:01', true),
+            array('2011-2-1', false, '2011-1', true),
+            array('2011-2-1', false, '21021991', true),
         );
     }
 }

@@ -58,12 +58,20 @@ class DateAfter implements RuleInterface
     protected string $date;
 
     /**
+     * Whether the given date is included or not
+     * @var bool
+     */
+    protected bool $include = false;
+
+    /**
      * Constructor
      * @param string $date the date format
+     * @param bool $include
      */
-    public function __construct(string $date)
+    public function __construct(string $date, bool $include = false)
     {
         $this->date = $date;
+        $this->include = $include;
     }
 
     /**
@@ -72,6 +80,10 @@ class DateAfter implements RuleInterface
      */
     public function validate(string $field, $value, Validator $validator): bool
     {
+        if ($this->include) {
+            return strtotime((string) $value) >= strtotime($this->date);
+        }
+
         return strtotime((string) $value) > strtotime($this->date);
     }
 

@@ -63,7 +63,7 @@ class NumberTest extends PlatineTestCase
             array(127, true),
             array(56, true),
             array('1e4', true),
-			array('', true),
+            array('', true),
         );
     }
 }
