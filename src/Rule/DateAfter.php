@@ -93,6 +93,14 @@ class DateAfter implements RuleInterface
      */
     public function getErrorMessage(string $field, $value, Validator $validator): string
     {
+        if($this->include){
+            return $validator->translate(
+                '%s must be after or equal to the date [%s]!',
+                $validator->getLabel($field),
+                $this->date
+            );
+        }
+        
         return $validator->translate(
             '%s must be after the date [%s]!',
             $validator->getLabel($field),
