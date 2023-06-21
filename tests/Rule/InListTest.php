@@ -54,6 +54,7 @@ class InListTest extends PlatineTestCase
     public function validationDataProvider(): array
     {
         return array(
+            array(array(2, 4, 5), '', true),
             array(array(2, 4, 5), '676', false),
             array(array(12, 10), '123456', false),
             array(array('a', 'n'), '10.0', false),
