@@ -54,12 +54,12 @@ class EqualTest extends PlatineTestCase
     public function validationDataProvider(): array
     {
         return array(
-            array(0, '', false),
-            array(10, '10', false),
-            array(10, 10.0, false),
+            array(0, '', true),
+            array(10, '10', true),
+            array(10, 10.0, true),
             array('a', 'A', false),
-            array(true, 1, false),
-            array(false, 0, false),
+            array(true, 1, true),
+            array(false, 0, true),
             array(10, 10, true),
             array('a', 'a', true),
         );
