@@ -4,11 +4,11 @@
 [![Project Status](http://opensource.box.com/badges/active.svg)](http://opensource.box.com/badges)
 [![Latest Stable Version](https://poser.pugx.org/platine-php/validator/v)](https://packagist.org/packages/platine-php/validator)
 [![Latest Unstable Version](https://poser.pugx.org/platine-php/validator/v/unstable)](https://packagist.org/packages/platine-php/validator)
-[![License](https://poser.pugx.org/platine-php/validator/license)](https://packagist.org/packages/platine-php/validator)
-[![Build Status](https://img.shields.io/travis/com/platine-php/validator?style=flat-square)](https://travis-ci.com/platine-php/validator)  
+[![Total Downloads](https://poser.pugx.org/platine-php/validator/downloads)](https://packagist.org/packages/platine-php/validator)
+[![License](https://poser.pugx.org/platine-php/validator/license)](https://packagist.org/packages/platine-php/validator)  
 [![Quality Score](https://img.shields.io/scrutinizer/g/platine-php/validator.svg?style=flat-square)](https://scrutinizer-ci.com/g/platine-php/validator)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ab9e45ed46d84f761f13/maintainability)](https://codeclimate.com/github/platine-php/validator/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ab9e45ed46d84f761f13/test_coverage)](https://codeclimate.com/github/platine-php/validator/test_coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/13801510d0fe4606a43afe7054c785c8)](https://app.codacy.com/gh/platine-php/validator/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/13801510d0fe4606a43afe7054c785c8)](https://app.codacy.com/gh/platine-php/validator/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
 ### Requirements 
 - **PHP >= 7.4**, **PHP 8** 

@@ -72,7 +72,7 @@ class InList implements RuleInterface
      */
     public function validate(string $field, $value, Validator $validator): bool
     {
-		if (empty($value)) {
+        if (empty($value)) {
             return true;
         }
         return in_array($value, $this->list);
