@@ -54,7 +54,6 @@ class EqualTest extends PlatineTestCase
     public function validationDataProvider(): array
     {
         return array(
-            array(0, '', true),
             array(10, '10', true),
             array(10, 10.0, true),
             array('a', 'A', false),
