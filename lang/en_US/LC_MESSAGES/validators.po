@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Platine Validator 1.0.0\n"
-"POT-Creation-Date: 2023-05-03 10:13+0100\n"
-"PO-Revision-Date: 2023-05-03 10:13+0100\n"
+"POT-Creation-Date: 2024-07-06 08:02+0100\n"
+"PO-Revision-Date: 2024-07-06 08:02+0100\n"
 "Last-Translator: Tony NGUEREZA <nguerezatony@gmail.com>\n"
 "Language-Team: Platine Team\n"
 "Language: en_US\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ../../../src\n"
 "X-Poedit-KeywordsList: translate\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -90,7 +90,7 @@ msgstr ""
 msgid "%s must be a valid IPv6 address!"
 msgstr ""
 
-#: Rule/InList.php:85
+#: Rule/InList.php:88
 #, php-format
 msgid "%s must be one of the following (%s)!"
 msgstr ""
@@ -120,7 +120,7 @@ msgstr ""
 msgid "%s must be greather or equal to [%s]!"
 msgstr ""
 
-#: Rule/MinLength.php:88
+#: Rule/MinLength.php:88 Rule/Password.php:143
 #, php-format
 msgid "%s must contain at least %d characters!"
 msgstr ""
@@ -148,6 +148,26 @@ msgstr ""
 #: Rule/Number.php:73
 #, php-format
 msgid "%s must be a number!"
+msgstr ""
+
+#: Rule/Password.php:151
+#, php-format
+msgid "%s should include at least one lower case!"
+msgstr ""
+
+#: Rule/Password.php:155
+#, php-format
+msgid "%s should include at least one upper case!"
+msgstr ""
+
+#: Rule/Password.php:159
+#, php-format
+msgid "%s should include at least one number!"
+msgstr ""
+
+#: Rule/Password.php:163
+#, php-format
+msgid "%s should include at least one special character!"
 msgstr ""
 
 #: Rule/Range.php:93
