@@ -19,16 +19,16 @@
     },
 	
     "require": {
-        "php": "^7.4 || ^8",
-        "platine-php/lang": "^1.0"
+        "php": "^8",
+        "platine-php/lang": "^2.0"
     },
 	
     "require-dev": {
         "phpmd/phpmd": "@stable",
-        "phpunit/phpunit": "^9.5",
-        "platine-php/dev": "^1.0",
+        "phpunit/phpunit": "^9.6",
+        "platine-php/dev": "^2.0",
         "squizlabs/php_codesniffer": "3.*",
-        "phpstan/phpstan": "^1.8"
+        "phpstan/phpstan": "^2.0"
     },
     
     "autoload": {

@@ -49,6 +49,10 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Password
+ * @package Platine\Validator\Rule
+ */
 class Password implements RuleInterface
 {
     /*
@@ -91,14 +95,13 @@ class Password implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         if (empty($value)) {
             return true;
         }
 
         $rules = $this->rules;
-
         if (strlen($value) < $rules['length']) {
             $this->errorType = self::ERROR_TYPE_LENGTH;
 
@@ -136,7 +139,7 @@ class Password implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         if ($this->errorType === self::ERROR_TYPE_LENGTH) {
             return $validator->translate(

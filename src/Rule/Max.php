@@ -49,19 +49,23 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Max
+ * @package Platine\Validator\Rule
+ */
 class Max implements RuleInterface
 {
     /**
      * Value to compare against
-     * @var mixed
+     * @var string|float|int|bool|null
      */
-    protected $value;
+    protected string|float|int|bool|null $value;
 
     /**
      * Constructor
-     * @param mixed $value the value to compare against
+     * @param string|float|int|bool|null $value the value to compare against
      */
-    public function __construct($value)
+    public function __construct(string|float|int|bool|null $value)
     {
         $this->value = $value;
     }
@@ -70,7 +74,7 @@ class Max implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         if (empty($value)) {
             return true;
@@ -82,7 +86,7 @@ class Max implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must be less or equal to [%s]!',

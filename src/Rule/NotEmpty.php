@@ -49,25 +49,30 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class NotEmpty
+ * @package Platine\Validator\Rule
+ */
 class NotEmpty implements RuleInterface
 {
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         if (is_array($value)) {
             return count($value) !== 0;
         }
-        return $value !== '';
+
+        return $value !== '' && $value !== null;
     }
 
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must not to be empty!',

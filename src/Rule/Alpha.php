@@ -49,6 +49,10 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Alpha
+ * @package Platine\Validator\Rule
+ */
 class Alpha implements RuleInterface
 {
     /**
@@ -61,11 +65,12 @@ class Alpha implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         if (empty($value)) {
             return true;
         }
+
         return (bool) preg_match($this->regex, (string) $value);
     }
 
@@ -73,7 +78,7 @@ class Alpha implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must contain alphabetic characters',

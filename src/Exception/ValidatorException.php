@@ -32,6 +32,12 @@ declare(strict_types=1);
 
 namespace Platine\Validator\Exception;
 
-class ValidatorException extends \Exception
+use Exception;
+
+/**
+ * @class ValidatorException
+ * @package Platine\Validator\Exception
+ */
+class ValidatorException extends Exception
 {
 }

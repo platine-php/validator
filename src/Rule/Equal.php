@@ -49,19 +49,23 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Equal
+ * @package Platine\Validator\Rule
+ */
 class Equal implements RuleInterface
 {
     /**
      * Value to compare against
      * @var mixed
      */
-    protected $value;
+    protected mixed $value;
 
     /**
      * Constructor
      * @param mixed $value the value to compare against
      */
-    public function __construct($value)
+    public function __construct(mixed $value)
     {
         $this->value = $value;
     }
@@ -70,16 +74,16 @@ class Equal implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
-        return $this->value == $value;
+        return $this->value == $value; // don't use === here
     }
 
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must to be equal to [%s]!',

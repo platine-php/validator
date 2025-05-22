@@ -49,6 +49,10 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class AlphaNumeric
+ * @package Platine\Validator\Rule
+ */
 class AlphaNumeric implements RuleInterface
 {
     /**
@@ -61,7 +65,7 @@ class AlphaNumeric implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         if (empty($value)) {
             return true;
@@ -73,7 +77,7 @@ class AlphaNumeric implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must contain alphanumeric characters!',

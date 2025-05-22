@@ -49,6 +49,10 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Regex
+ * @package Platine\Validator\Rule
+ */
 class Regex implements RuleInterface
 {
     /**
@@ -70,16 +74,16 @@ class Regex implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
-        return (bool) preg_match($this->regex, (string) $value);
+        return (bool) preg_match($this->regex, (string)$value);
     }
 
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s does not use the correct format!',

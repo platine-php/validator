@@ -49,24 +49,29 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Integer
+ * @package Platine\Validator\Rule
+ */
 class Integer implements RuleInterface
 {
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
-        //Note there an issue woth 0 when using FILTER_VALIDATE_INT
+        //Note there an issue with 0 when using FILTER_VALIDATE_INT
         //so the second condition is to fix this issue
-        return (bool) filter_var($value, FILTER_VALIDATE_INT) || filter_var($value, FILTER_VALIDATE_INT) === 0;
+        return (bool) filter_var($value, FILTER_VALIDATE_INT)
+                || filter_var($value, FILTER_VALIDATE_INT) === 0;
     }
 
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must be an integer!',

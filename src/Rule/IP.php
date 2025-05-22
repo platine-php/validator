@@ -49,13 +49,17 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class IP
+ * @package Platine\Validator\Rule
+ */
 class IP implements RuleInterface
 {
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         return (bool) filter_var($value, FILTER_VALIDATE_IP);
     }
@@ -64,7 +68,7 @@ class IP implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must be a valid ip address!',

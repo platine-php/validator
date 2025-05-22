@@ -49,13 +49,17 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Natural
+ * @package Platine\Validator\Rule
+ */
 class Natural implements RuleInterface
 {
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         if (empty($value)) {
             return true;
@@ -63,6 +67,7 @@ class Natural implements RuleInterface
         if (filter_var($value, FILTER_VALIDATE_INT) === false) {
             return false;
         }
+
         return $value >= 0;
     }
 
@@ -70,7 +75,7 @@ class Natural implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must be a natural number (0, 1, 2, )!',

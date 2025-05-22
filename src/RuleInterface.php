@@ -47,6 +47,9 @@ declare(strict_types=1);
 namespace Platine\Validator;
 
 /**
+ * @class RuleInterface
+ * @package Platine\Validator
+ *
  * A generic Rule that asserts whether the given validation
  * data is valid or not.
  */
@@ -60,7 +63,7 @@ interface RuleInterface
      * @param  Validator $validator the validator instance
      * @return bool              the validation status
      */
-    public function validate(string $field, $value, Validator $validator): bool;
+    public function validate(string $field, mixed $value, Validator $validator): bool;
 
     /**
      * Return error message for this Rule
@@ -70,5 +73,5 @@ interface RuleInterface
      * @param  Validator $validator the validator instance
      * @return string
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string;
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string;
 }

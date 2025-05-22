@@ -6,7 +6,6 @@ namespace Platine\Test\Validator;
 
 use Platine\Dev\PlatineTestCase;
 use Platine\Lang\Lang;
-use Platine\Validator\Exception\ValidatorException;
 use Platine\Validator\Rule\NotEmpty;
 use Platine\Validator\Validator;
 
@@ -71,10 +70,6 @@ class ValidatorTest extends PlatineTestCase
         //Success
         $v->addFilters('baz', array('trim'));
         $this->assertCount(2, $reflection->getValue($v));
-
-        //Failed
-        $this->expectException(ValidatorException::class);
-        $v->addFilters('baz', array('trim', 'not_found_callbale'));
     }
 
     public function testAddRules(): void
@@ -101,10 +96,6 @@ class ValidatorTest extends PlatineTestCase
         //Success
         $v->addRules('baz', array(new NotEmpty()));
         $this->assertCount(3, $v->getRules());
-
-        //Failed
-        $this->expectException(ValidatorException::class);
-        $v->addRules('baz', array(new NotEmpty(), 'not_a_valid_rule'));
     }
 
     public function testGetRules(): void

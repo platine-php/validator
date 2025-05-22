@@ -47,9 +47,11 @@ declare(strict_types=1);
 namespace Platine\Validator;
 
 use Platine\Lang\Lang;
-use Platine\Validator\Exception\ValidatorException;
 
 /**
+ * @class Validator
+ * @package Platine\Validator
+ *
  * A Validator contains a set of validation rules and
  * associated metadata for ensuring that a given data set
  * is valid and returned correctly.
@@ -133,10 +135,10 @@ class Validator
     /**
      * Translation a single message
      * @param string $message
-     * @param array<int, mixed>|mixed $args
+     * @param mixed $args
      * @return string
      */
-    public function translate(string $message, $args = []): string
+    public function translate(string $message, mixed $args = []): string
     {
         if (!is_array($args)) {
             $args = array_slice(func_get_args(), 1);
@@ -181,7 +183,7 @@ class Validator
      * @param mixed $default the default value to return if can not find field value
      * @return mixed
      */
-    public function getData(?string $field = null, $default = null)
+    public function getData(?string $field = null, mixed $default = null): mixed
     {
         if ($field === null) {
             return $this->data;
@@ -222,9 +224,7 @@ class Validator
      */
     public function getLabel(string $field): string
     {
-        return isset($this->labels[$field])
-                ? $this->labels[$field]
-                : $this->humanizeFieldName($field);
+        return $this->labels[$field] ?? $this->humanizeFieldName($field);
     }
 
     /**
@@ -239,6 +239,7 @@ class Validator
         if (!isset($this->filters[$field])) {
             $this->filters[$field] = [];
         }
+
         $this->filters[$field][] = $filter;
 
         return $this;
@@ -254,9 +255,6 @@ class Validator
     public function addFilters(string $field, array $filters): self
     {
         foreach ($filters as $filter) {
-            if (!is_callable($filter)) {
-                throw new ValidatorException('Filter must to be a valid callable');
-            }
             $this->addFilter($field, $filter);
         }
 
@@ -275,9 +273,11 @@ class Validator
         if (!isset($this->rules[$field])) {
             $this->rules[$field] = [];
         }
+
         if (!isset($this->labels[$field])) {
             $this->labels[$field] = $this->humanizeFieldName($field);
         }
+
         $this->rules[$field][] = $rule;
 
         return $this;
@@ -293,12 +293,6 @@ class Validator
     public function addRules(string $field, array $rules): self
     {
         foreach ($rules as $rule) {
-            if (!$rule instanceof RuleInterface) {
-                throw new ValidatorException(sprintf(
-                    'Validation rule must implement [%s]!',
-                    RuleInterface::class
-                ));
-            }
             $this->addRule($field, $rule);
         }
 
@@ -321,19 +315,19 @@ class Validator
     /**
      * Validate the data
      * @param  array<string, mixed>  $data
-     * @return bool       the validation status
+     * @return bool the validation status
      */
     public function validate(array $data = []): bool
     {
-        if (!empty($data)) {
+        if (count($data) > 0) {
             $this->data = $data;
         }
+
         $this->applyFilters();
 
         $this->errors = $this->validateRules();
-        $this->valid = empty($this->errors);
 
-        return $this->valid;
+        return $this->valid = count($this->errors) === 0;
     }
 
     /**
@@ -356,7 +350,7 @@ class Validator
      */
     protected function validateRules(): array
     {
-        if (empty($this->rules)) {
+        if (count($this->rules) === 0) {
             return [];
         }
         $errors = [];
@@ -379,7 +373,7 @@ class Validator
      */
     protected function validateFieldRules(string $field, array $rules): array
     {
-        $value = isset($this->data[$field]) ? $this->data[$field] : null;
+        $value = $this->data[$field] ?? null;
         foreach ($rules as $rule) {
             list($result, $error) = $this->validateRule($field, $value, $rule);
             if ($result === false) {
@@ -395,14 +389,15 @@ class Validator
      * @param  string $field
      * @param  mixed $value
      * @param  RuleInterface  $rule the rule instance to validate
-     * @return array<mixed>     array(Status, error)
+     * @return array<mixed>  array(Status, error)
      */
-    protected function validateRule(string $field, $value, RuleInterface $rule): array
+    protected function validateRule(string $field, mixed $value, RuleInterface $rule): array
     {
         $result = $rule->validate($field, $value, $this);
         if ($result) {
             return [true, null];
         }
+
         return [false, $rule->getErrorMessage($field, $value, $this)];
     }
 
@@ -412,12 +407,11 @@ class Validator
      */
     protected function applyFilters(): array
     {
-        if (empty($this->filters)) {
+        if (count($this->filters) === 0) {
             return $this->data;
         }
 
         $data = $this->data;
-
         foreach ($this->filters as $field => $filters) {
             if (!isset($data[$field])) {
                 continue;

@@ -49,27 +49,33 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Range
+ * @package Platine\Validator\Rule
+ */
 class Range implements RuleInterface
 {
     /**
      * Minimum Value to compare against
-     * @var mixed
+     * @var string|float|int|bool|null
      */
-    protected $min;
+    protected string|float|int|bool|null $min;
 
     /**
      * Maximum Value to compare against
-     * @var mixed
+     * @var string|float|int|bool|null
      */
-    protected $max;
+    protected string|float|int|bool|null $max;
 
     /**
      * Constructor
-     * @param mixed $min the minimum value to compare against
-     * @param mixed $max the maximum value to compare against
+     * @param string|float|int|bool|null $min the minimum value to compare against
+     * @param string|float|int|bool|null $max the maximum value to compare against
      */
-    public function __construct($min, $max)
-    {
+    public function __construct(
+        string|float|int|bool|null $min,
+        string|float|int|bool|null $max
+    ) {
         $this->min = $min;
         $this->max = $max;
     }
@@ -78,7 +84,7 @@ class Range implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         return $value >= $this->min && $value <= $this->max;
     }
@@ -87,7 +93,7 @@ class Range implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must be between %s and %s!',

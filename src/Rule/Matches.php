@@ -49,6 +49,10 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class Matches
+ * @package Platine\Validator\Rule
+ */
 class Matches implements RuleInterface
 {
     /**
@@ -70,7 +74,7 @@ class Matches implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         $value2 = $validator->getData($this->field);
         return $value2 === $value;
@@ -80,7 +84,7 @@ class Matches implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
             '%s must be identical to field %s!',

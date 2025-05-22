@@ -49,6 +49,10 @@ namespace Platine\Validator\Rule;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
+/**
+ * @class DateAfter
+ * @package Platine\Validator\Rule
+ */
 class DateAfter implements RuleInterface
 {
     /**
@@ -78,7 +82,7 @@ class DateAfter implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function validate(string $field, $value, Validator $validator): bool
+    public function validate(string $field, mixed $value, Validator $validator): bool
     {
         if ($this->include) {
             return strtotime((string) $value) >= strtotime($this->date);
@@ -91,7 +95,7 @@ class DateAfter implements RuleInterface
      * {@inheritdoc}
      * @see RuleInterface
      */
-    public function getErrorMessage(string $field, $value, Validator $validator): string
+    public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         if ($this->include) {
             return $validator->translate(
