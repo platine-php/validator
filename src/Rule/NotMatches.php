@@ -56,16 +56,10 @@ use Platine\Validator\Validator;
 class NotMatches implements RuleInterface
 {
     /**
-     * Field to compare against
-     * @var string
-     */
-    protected string $field;
-
-    /**
      * Constructor
      * @param string $field the field to compare against
      */
-    public function __construct(string $field)
+    public function __construct(protected string $field)
     {
         $this->field = $field;
     }

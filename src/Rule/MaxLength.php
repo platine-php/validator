@@ -56,16 +56,10 @@ use Platine\Validator\Validator;
 class MaxLength implements RuleInterface
 {
     /**
-     * The length
-     * @var int
-     */
-    protected int $length;
-
-    /**
      * Constructor
      * @param int $length
      */
-    public function __construct(int $length)
+    public function __construct(protected int $length)
     {
         $this->length = $length;
     }

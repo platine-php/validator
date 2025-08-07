@@ -29,9 +29,9 @@
  */
 
 /**
- *  @file DateBefore.php
+ *  @file Equal.php
  *
- *  Date must be before the given one
+ *  Field value must match Equal value
  *
  *  @package    Platine\Validator\Rule
  *  @author Platine Developers Team
@@ -48,22 +48,28 @@ namespace Platine\Validator\Rule;
 
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
+use ReflectionClass;
+use ReflectionClassConstant;
 
 /**
- * @class DateBefore
+ * @class Enum
  * @package Platine\Validator\Rule
  */
-class DateBefore implements RuleInterface
+class Enum implements RuleInterface
 {
     /**
-     * Constructor
-     * @param string $date the date format to compare against
-     * @param bool $include whether the given date is included or not
+     * the list to match
+     * @var array<mixed>
      */
-    public function __construct(protected string $date, protected bool $include = false)
+    protected array $list = [];
+
+    /**
+     * Constructor
+     * @param class-string<object> $enumClass the enumeration class
+     */
+    public function __construct(protected string $enumClass)
     {
-        $this->date = $date;
-        $this->include = $include;
+        $this->enumClass = $enumClass;
     }
 
     /**
@@ -72,11 +78,15 @@ class DateBefore implements RuleInterface
      */
     public function validate(string $field, mixed $value, Validator $validator): bool
     {
-        if ($this->include) {
-            return strtotime((string) $value) <= strtotime($this->date);
+        if (empty($value)) {
+            return true;
         }
+        $reflect = new ReflectionClass($this->enumClass);
+        $constants = $reflect->getConstants(ReflectionClassConstant::IS_PUBLIC);
 
-        return strtotime((string) $value) < strtotime($this->date);
+        $this->list = array_values($constants);
+
+        return in_array($value, $this->list);
     }
 
     /**
@@ -85,18 +95,10 @@ class DateBefore implements RuleInterface
      */
     public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
-        if ($this->include) {
-            return $validator->translate(
-                '%s must be before or equal to the date [%s]!',
-                $validator->getLabel($field),
-                $this->date
-            );
-        }
-
         return $validator->translate(
-            '%s must be before the date [%s]!',
+            '%s must be one of the following (%s)!',
             $validator->getLabel($field),
-            $this->date
+            implode(', ', $this->list)
         );
     }
 }

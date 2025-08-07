@@ -56,16 +56,10 @@ use Platine\Validator\Validator;
 class Equal implements RuleInterface
 {
     /**
-     * Value to compare against
-     * @var mixed
-     */
-    protected mixed $value;
-
-    /**
      * Constructor
      * @param mixed $value the value to compare against
      */
-    public function __construct(mixed $value)
+    public function __construct(protected mixed $value)
     {
         $this->value = $value;
     }

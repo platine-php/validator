@@ -29,9 +29,9 @@
  */
 
 /**
- *  @file DateBefore.php
+ *  @file Email.php
  *
- *  Date must be before the given one
+ *  Validate an email address
  *
  *  @package    Platine\Validator\Rule
  *  @author Platine Developers Team
@@ -46,37 +46,27 @@ declare(strict_types=1);
 
 namespace Platine\Validator\Rule;
 
+use Platine\Stdlib\Helper\Uuid as StdUuid;
 use Platine\Validator\RuleInterface;
 use Platine\Validator\Validator;
 
 /**
- * @class DateBefore
+ * @class Uuid
  * @package Platine\Validator\Rule
  */
-class DateBefore implements RuleInterface
+class Uuid implements RuleInterface
 {
-    /**
-     * Constructor
-     * @param string $date the date format to compare against
-     * @param bool $include whether the given date is included or not
-     */
-    public function __construct(protected string $date, protected bool $include = false)
-    {
-        $this->date = $date;
-        $this->include = $include;
-    }
-
     /**
      * {@inheritdoc}
      * @see RuleInterface
      */
     public function validate(string $field, mixed $value, Validator $validator): bool
     {
-        if ($this->include) {
-            return strtotime((string) $value) <= strtotime($this->date);
+        if (empty($value)) {
+            return true;
         }
 
-        return strtotime((string) $value) < strtotime($this->date);
+        return StdUuid::isValid((string) $value);
     }
 
     /**
@@ -85,18 +75,9 @@ class DateBefore implements RuleInterface
      */
     public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
-        if ($this->include) {
-            return $validator->translate(
-                '%s must be before or equal to the date [%s]!',
-                $validator->getLabel($field),
-                $this->date
-            );
-        }
-
         return $validator->translate(
-            '%s must be before the date [%s]!',
-            $validator->getLabel($field),
-            $this->date
+            '%s must be a valid UUID!',
+            $validator->getLabel($field)
         );
     }
 }

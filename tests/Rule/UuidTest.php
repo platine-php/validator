@@ -4,30 +4,29 @@ declare(strict_types=1);
 
 namespace Platine\Test\Validator\Rule;
 
-use Platine\Validator\Validator;
-use Platine\Validator\Rule\Regex;
 use Platine\Dev\PlatineTestCase;
+use Platine\Validator\Rule\Uuid;
+use Platine\Validator\Validator;
 
 /**
- * Regex validation rule class tests
+ * Uuid validation rule class tests
  *
  * @group core
  * @group validator
  * @group rule
  */
-class RegexTest extends PlatineTestCase
+class UuidTest extends PlatineTestCase
 {
     /**
      * test Validate method
      *
      * @dataProvider validationDataProvider
      *
-     * @param  mixed $param
      * @param  mixed $value
      * @param  mixed $expectedResult
      * @return void
      */
-    public function testValidate($param, $value, $expectedResult): void
+    public function testValidate($value, $expectedResult): void
     {
         $field = 'name';
 
@@ -39,7 +38,7 @@ class RegexTest extends PlatineTestCase
 
 
 
-        $o = new Regex($param);
+        $o = new Uuid();
 
         $this->assertEquals($expectedResult, $o->validate($field, $value, $validator));
 
@@ -54,12 +53,13 @@ class RegexTest extends PlatineTestCase
     public function validationDataProvider(): array
     {
         return array(
-            array('/^([a-b])$/', 'ab3', false),
-            array('/^([a-b])$/', 'AB', false),
-            array('/^([a-b0-9])$/', 'ab 3', false),
-            array('/^([a-b])$/', 'a', true),
-            array('/^([a-b0-8]+)$/', 'a6', true),
-            array('/^([a-b0-8]+)$/', '', true),
+            array('ab3', false),
+            array('AB', false),
+            array('ab 3', false),
+            array('f7ab0132-7337-11f0-8de9-0242ac120002', true), // v1
+            array('ec87e4f1-abb8-4a97-be2b-1ff6d6bf5702', true), // v4
+            array('01988267-9aa9-7c88-8ca6-69a5cbf59fe4', true), // v7
+            array('', true),
         );
     }
 }

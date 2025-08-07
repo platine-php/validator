@@ -94,26 +94,16 @@ class Validator
      */
     protected bool $valid = false;
 
-    /**
-     * The validation language domain to use
-     * @var string
-     */
-    protected string $langDomain;
-
-    /**
-     * The language to use
-     * @var Lang
-     */
-    protected Lang $lang;
-
 
     /**
      * Create new instance
-     * @param Lang $lang
-     * @param string $langDomain
+     * @param Lang $lang The language to use
+     * @param string $langDomain The validation language domain to use
      */
-    public function __construct(Lang $lang, string $langDomain = 'validators')
-    {
+    public function __construct(
+        protected Lang $lang,
+        protected string $langDomain = 'validators'
+    ) {
         $this->lang = $lang;
         $this->langDomain = $langDomain;
 
@@ -140,7 +130,7 @@ class Validator
      */
     public function translate(string $message, mixed $args = []): string
     {
-        if (!is_array($args)) {
+        if (is_array($args) === false) {
             $args = array_slice(func_get_args(), 1);
         }
 
@@ -188,7 +178,8 @@ class Validator
         if ($field === null) {
             return $this->data;
         }
-        return array_key_exists($field, $this->data) ? $this->data[$field] : $default;
+
+        return $this->data[$field] ?? $default;
     }
 
     /**
@@ -307,9 +298,11 @@ class Validator
      */
     public function getRules(?string $field = null): array
     {
-        return $field !== null
-                    ? (isset($this->rules[$field]) ? $this->rules[$field] : [])
-                    : $this->rules;
+        if ($field === null) {
+            return $this->rules;
+        }
+
+        return $this->rules[$field] ?? [];
     }
 
     /**
@@ -335,8 +328,8 @@ class Validator
      * @return array<string, string> the validation errors
      *
      * @example array(
-     *          'field1' => 'message 1',
-     *          'field2' => 'message 2',
+     *   'field1' => 'message 1',
+     *   'field2' => 'message 2',
      * )
      */
     public function getErrors(): array

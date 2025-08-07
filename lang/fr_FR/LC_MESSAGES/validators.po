@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Platine Validator 1.0.0\n"
-"POT-Creation-Date: 2024-07-06 08:00+0100\n"
-"PO-Revision-Date: 2024-07-06 08:01+0100\n"
+"POT-Creation-Date: 2025-08-07 04:06+0100\n"
+"PO-Revision-Date: 2025-08-07 04:06+0100\n"
 "Last-Translator: Tony NGUEREZA <nguerezatony@gmail.com>\n"
 "Language-Team: Platine Team\n"
 "Language: fr_FR\n"
@@ -15,172 +15,177 @@ msgstr ""
 "X-Poedit-KeywordsList: translate\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: Rule/Alpha.php:79
+#: Rule/Alpha.php:84
 #, php-format
 msgid "%s must contain alphabetic characters"
 msgstr "%s doit contenir des caractères alphabétiques"
 
-#: Rule/AlphaDash.php:79
+#: Rule/AlphaDash.php:83
 #, php-format
 msgid "%s must contain alphabetic characters, - and _"
 msgstr "%s doit contenir des caractères alphabétiques, - et _"
 
-#: Rule/AlphaNumeric.php:79
+#: Rule/AlphaNumeric.php:83
 #, php-format
 msgid "%s must contain alphanumeric characters!"
 msgstr "%s doit contenir des caractères alphanumériques !"
 
-#: Rule/AlphaNumericDash.php:79
+#: Rule/AlphaNumericDash.php:83
 #, php-format
 msgid "%s must contain alphanumeric characters, - and _"
 msgstr "%s doit contenir des caractères alphanumériques, - et _"
 
-#: Rule/Date.php:89
+#: Rule/Date.php:93
 #, php-format
 msgid "%s must contain a correct date format [%s]!"
 msgstr "%s doit contenir un format de date correct [%s] !"
 
-#: Rule/DateAfter.php:98
+#: Rule/DateAfter.php:102
 #, php-format
 msgid "%s must be after or equal to the date [%s]!"
 msgstr "%s doit être égale ou après la date [%s] !"
 
-#: Rule/DateAfter.php:105
+#: Rule/DateAfter.php:109
 #, php-format
 msgid "%s must be after the date [%s]!"
 msgstr "%s doit être après la date [%s] !"
 
-#: Rule/DateBefore.php:98
+#: Rule/DateBefore.php:102
 #, php-format
 msgid "%s must be before or equal to the date [%s]!"
 msgstr "%s doit être antérieur ou égale à la date [%s] !"
 
-#: Rule/DateBefore.php:105
+#: Rule/DateBefore.php:109
 #, php-format
 msgid "%s must be before the date [%s]!"
 msgstr "%s doit être antérieur à la date [%s] !"
 
-#: Rule/Email.php:73
+#: Rule/Email.php:77
 #, php-format
 msgid "%s must be a valid email address!"
 msgstr "%s doit être une adresse e-mail valide !"
 
-#: Rule/Equal.php:85
-#, php-format
-msgid "%s must to be equal to [%s]!"
-msgstr "%s doit être égal à [%s] !"
-
-#: Rule/ExactLength.php:88
-#, php-format
-msgid "%s must contain exactly %d characters!"
-msgstr "%s doit contenir exactement %d caractères !"
-
-#: Rule/IP.php:70
-#, php-format
-msgid "%s must be a valid ip address!"
-msgstr "%s doit être une adresse IP valide !"
-
-#: Rule/IPv4.php:70
-#, php-format
-msgid "%s must be a valid IPv4 address!"
-msgstr "%s doit être une adresse IPv4 valide !"
-
-#: Rule/IPv6.php:70
-#, php-format
-msgid "%s must be a valid IPv6 address!"
-msgstr "%s doit être une adresse IPv6 valide !"
-
-#: Rule/InList.php:88
+#: Rule/Enum.php:96 Rule/InList.php:92
 #, php-format
 msgid "%s must be one of the following (%s)!"
 msgstr "%s doit être l'un des suivants (%s) !"
 
-#: Rule/Integer.php:72
+#: Rule/Equal.php:89
+#, php-format
+msgid "%s must to be equal to [%s]!"
+msgstr "%s doit être égal à [%s] !"
+
+#: Rule/ExactLength.php:92
+#, php-format
+msgid "%s must contain exactly %d characters!"
+msgstr "%s doit contenir exactement %d caractères !"
+
+#: Rule/IP.php:74
+#, php-format
+msgid "%s must be a valid ip address!"
+msgstr "%s doit être une adresse IP valide !"
+
+#: Rule/IPv4.php:74
+#, php-format
+msgid "%s must be a valid IPv4 address!"
+msgstr "%s doit être une adresse IPv4 valide !"
+
+#: Rule/IPv6.php:74
+#, php-format
+msgid "%s must be a valid IPv6 address!"
+msgstr "%s doit être une adresse IPv6 valide !"
+
+#: Rule/Integer.php:77
 #, php-format
 msgid "%s must be an integer!"
 msgstr "%s doit être un entier !"
 
-#: Rule/Matches.php:86
+#: Rule/Matches.php:90
 #, php-format
 msgid "%s must be identical to field %s!"
 msgstr "%s doit être identique au champ %s !"
 
-#: Rule/Max.php:88
+#: Rule/Max.php:92
 #, php-format
 msgid "%s must be less or equal to [%s]!"
 msgstr "%s doit être inférieur ou égal à [%s] !"
 
-#: Rule/MaxLength.php:88
+#: Rule/MaxLength.php:92
 #, php-format
 msgid "%s must contain at most %d characters!"
 msgstr "%s doit contenir au plus %d caractères !"
 
-#: Rule/Min.php:88
+#: Rule/Min.php:92
 #, php-format
 msgid "%s must be greather or equal to [%s]!"
 msgstr "%s doit être supérieur ou égal à [%s] !"
 
-#: Rule/MinLength.php:88 Rule/Password.php:143
+#: Rule/MinLength.php:86 Rule/Password.php:140
 #, php-format
 msgid "%s must contain at least %d characters!"
 msgstr "%s doit contenir au moins %d caractères !"
 
-#: Rule/Natural.php:76
+#: Rule/Natural.php:81
 #, php-format
 msgid "%s must be a natural number (0, 1, 2, )!"
 msgstr "%s doit être un nombre naturel (0, 1, 2, ) !"
 
-#: Rule/NotEmpty.php:73
+#: Rule/NotEmpty.php:78
 #, php-format
 msgid "%s must not to be empty!"
 msgstr "%s ne doit pas être vide !"
 
-#: Rule/NotEqual.php:85
+#: Rule/NotEqual.php:83
 #, php-format
 msgid "%s must not to be equal to [%s]!"
 msgstr "%s ne doit pas être égal à [%s] !"
 
-#: Rule/NotMatches.php:86
+#: Rule/NotMatches.php:84
 #, php-format
 msgid "%s must not to be identical to field %s!"
 msgstr "%s ne doit pas être identique au champ %s !"
 
-#: Rule/Number.php:73
+#: Rule/Number.php:78
 #, php-format
 msgid "%s must be a number!"
 msgstr "%s doit être un nombre !"
 
-#: Rule/Password.php:151
+#: Rule/Password.php:148
 #, php-format
 msgid "%s should include at least one lower case!"
 msgstr "%s doit comporter au moins un caractère minuscule !"
 
-#: Rule/Password.php:155
+#: Rule/Password.php:152
 #, php-format
 msgid "%s should include at least one upper case!"
 msgstr "%s doit comporter au moins un caractère majuscule !"
 
-#: Rule/Password.php:159
+#: Rule/Password.php:156
 #, php-format
 msgid "%s should include at least one number!"
 msgstr "%s doit comporter au moins un chiffre !"
 
-#: Rule/Password.php:163
+#: Rule/Password.php:160
 #, php-format
 msgid "%s should include at least one special character!"
 msgstr "%s doit comporter au moins un caractère spécial !"
 
-#: Rule/Range.php:93
+#: Rule/Range.php:87
 #, php-format
 msgid "%s must be between %s and %s!"
 msgstr "%s doit être compris entre %s et %s !"
 
-#: Rule/Regex.php:85
+#: Rule/Regex.php:87
 #, php-format
 msgid "%s does not use the correct format!"
 msgstr "%s n'utilise pas le bon format !"
 
-#: Rule/URL.php:73
+#: Rule/URL.php:78
 #, php-format
 msgid "%s must be a valid URL!"
 msgstr "%s doit être une URL valide !"
+
+#: Rule/Uuid.php:79
+#, php-format
+msgid "%s must be a valid UUID!"
+msgstr "%s doit être un UUID valide !"

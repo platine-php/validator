@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace Platine\Test\Validator\Rule;
 
-use Platine\Validator\Validator;
-use Platine\Validator\Rule\Regex;
 use Platine\Dev\PlatineTestCase;
+use Platine\Validator\Rule\Enum;
+use Platine\Validator\Rule\Password;
+use Platine\Validator\Validator;
 
 /**
- * Regex validation rule class tests
+ * Enum validation rule class tests
  *
  * @group core
  * @group validator
  * @group rule
  */
-class RegexTest extends PlatineTestCase
+class EnumTest extends PlatineTestCase
 {
     /**
      * test Validate method
@@ -39,7 +40,7 @@ class RegexTest extends PlatineTestCase
 
 
 
-        $o = new Regex($param);
+        $o = new Enum($param);
 
         $this->assertEquals($expectedResult, $o->validate($field, $value, $validator));
 
@@ -54,12 +55,10 @@ class RegexTest extends PlatineTestCase
     public function validationDataProvider(): array
     {
         return array(
-            array('/^([a-b])$/', 'ab3', false),
-            array('/^([a-b])$/', 'AB', false),
-            array('/^([a-b0-9])$/', 'ab 3', false),
-            array('/^([a-b])$/', 'a', true),
-            array('/^([a-b0-8]+)$/', 'a6', true),
-            array('/^([a-b0-8]+)$/', '', true),
+            array(Password::class, 'ab3', false),
+            array(Password::class, 1, true),
+            array(Password::class, 3, true),
+            array(Password::class, '', true),
         );
     }
 }

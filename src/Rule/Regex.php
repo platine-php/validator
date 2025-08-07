@@ -56,16 +56,10 @@ use Platine\Validator\Validator;
 class Regex implements RuleInterface
 {
     /**
-     * The regex pattern
-     * @var string
-     */
-    protected string $regex;
-
-    /**
      * Constructor
      * @param string $regex the regex pattern
      */
-    public function __construct(string $regex)
+    public function __construct(protected string $regex)
     {
         $this->regex = $regex;
     }
@@ -76,6 +70,10 @@ class Regex implements RuleInterface
      */
     public function validate(string $field, mixed $value, Validator $validator): bool
     {
+        if (empty($value)) {
+            return true;
+        }
+
         return (bool) preg_match($this->regex, (string)$value);
     }
 

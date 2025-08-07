@@ -56,16 +56,10 @@ use Platine\Validator\Validator;
 class Min implements RuleInterface
 {
     /**
-     * Value to compare against
-     * @var string|float|int|bool|null
-     */
-    protected string|float|int|bool|null $value;
-
-    /**
      * Constructor
      * @param string|float|int|bool|null $value the value to compare against
      */
-    public function __construct(string|float|int|bool|null $value)
+    public function __construct(protected string|float|int|bool|null $value)
     {
         $this->value = $value;
     }

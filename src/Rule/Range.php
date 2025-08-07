@@ -56,25 +56,13 @@ use Platine\Validator\Validator;
 class Range implements RuleInterface
 {
     /**
-     * Minimum Value to compare against
-     * @var string|float|int|bool|null
-     */
-    protected string|float|int|bool|null $min;
-
-    /**
-     * Maximum Value to compare against
-     * @var string|float|int|bool|null
-     */
-    protected string|float|int|bool|null $max;
-
-    /**
      * Constructor
      * @param string|float|int|bool|null $min the minimum value to compare against
      * @param string|float|int|bool|null $max the maximum value to compare against
      */
     public function __construct(
-        string|float|int|bool|null $min,
-        string|float|int|bool|null $max
+        protected string|float|int|bool|null $min,
+        protected string|float|int|bool|null $max
     ) {
         $this->min = $min;
         $this->max = $max;

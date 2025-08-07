@@ -65,12 +65,6 @@ class Password implements RuleInterface
     public const ERROR_TYPE_SPECIAL_CHAR = 5;
 
     /**
-     * The password strength rules
-     * @var array<string, bool|int>
-     */
-    protected array $rules = [];
-
-    /**
      * The error type
      * @var int
      */
@@ -80,7 +74,7 @@ class Password implements RuleInterface
      * Constructor
      * @param array<string, bool|int> $rules
      */
-    public function __construct(array $rules = [])
+    public function __construct(protected array $rules = [])
     {
         $this->rules = array_merge([
             'length' => 5,

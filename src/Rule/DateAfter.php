@@ -56,23 +56,11 @@ use Platine\Validator\Validator;
 class DateAfter implements RuleInterface
 {
     /**
-     * The date to compare against
-     * @var string
-     */
-    protected string $date;
-
-    /**
-     * Whether the given date is included or not
-     * @var bool
-     */
-    protected bool $include = false;
-
-    /**
      * Constructor
-     * @param string $date the date format
-     * @param bool $include
+     * @param string $date the date format to compare against
+     * @param bool $include whether the given date is included or not
      */
-    public function __construct(string $date, bool $include = false)
+    public function __construct(protected string $date, protected bool $include = false)
     {
         $this->date = $date;
         $this->include = $include;

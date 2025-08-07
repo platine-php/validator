@@ -56,16 +56,10 @@ use Platine\Validator\Validator;
 class Date implements RuleInterface
 {
     /**
-     * The date format to validate
-     * @var string
-     */
-    protected string $format;
-
-    /**
      * Constructor
-     * @param string $format the date format
+     * @param string $format the date format to validate
      */
-    public function __construct(string $format)
+    public function __construct(protected string $format = 'Y-m-d')
     {
         $this->format = $format;
     }

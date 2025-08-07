@@ -56,16 +56,10 @@ use Platine\Validator\Validator;
 class InList implements RuleInterface
 {
     /**
-     * The list to match
-     * @var array<mixed>
-     */
-    protected array $list;
-
-    /**
      * Constructor
-     * @param array<mixed> $list
+     * @param array<mixed> $list The list to match
      */
-    public function __construct(array $list)
+    public function __construct(protected array $list)
     {
         $this->list = $list;
     }
