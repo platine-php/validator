@@ -22,6 +22,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
+        ini-file: development
         extensions: intl, fileinfo, xdebug, zip, gettext #optional
         ini-values: "post_max_size=256M, xdebug.mode=coverage" #optional
     - name: Check PHP Version
