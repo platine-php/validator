@@ -61,7 +61,6 @@ class Max implements RuleInterface
      */
     public function __construct(protected string|float|int|bool|null $value)
     {
-        $this->value = $value;
     }
 
     /**

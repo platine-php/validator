@@ -61,7 +61,6 @@ class InList implements RuleInterface
      */
     public function __construct(protected array $list)
     {
-        $this->list = $list;
     }
 
     /**

@@ -61,7 +61,6 @@ class Matches implements RuleInterface
      */
     public function __construct(protected string $field)
     {
-        $this->field = $field;
     }
 
     /**

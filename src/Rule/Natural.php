@@ -56,6 +56,14 @@ use Platine\Validator\Validator;
 class Natural implements RuleInterface
 {
     /**
+     * Constructor
+     * @param int $startValue the start value
+     */
+    public function __construct(protected int $startValue = 0)
+    {
+    }
+
+    /**
      * {@inheritdoc}
      * @see RuleInterface
      */
@@ -68,7 +76,7 @@ class Natural implements RuleInterface
             return false;
         }
 
-        return $value >= 0;
+        return $value >= $this->startValue;
     }
 
     /**
@@ -78,8 +86,9 @@ class Natural implements RuleInterface
     public function getErrorMessage(string $field, mixed $value, Validator $validator): string
     {
         return $validator->translate(
-            '%s must be a natural number (0, 1, 2, )!',
-            $validator->getLabel($field)
+            '%s must be a natural number started by %d !',
+            $validator->getLabel($field),
+            $this->startValue
         );
     }
 }

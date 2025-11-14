@@ -64,8 +64,6 @@ class Range implements RuleInterface
         protected string|float|int|bool|null $min,
         protected string|float|int|bool|null $max
     ) {
-        $this->min = $min;
-        $this->max = $max;
     }
 
     /**

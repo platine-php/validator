@@ -61,7 +61,6 @@ class Regex implements RuleInterface
      */
     public function __construct(protected string $regex)
     {
-        $this->regex = $regex;
     }
 
     /**

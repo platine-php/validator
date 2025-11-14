@@ -60,10 +60,10 @@ class DateAfter implements RuleInterface
      * @param string $date the date format to compare against
      * @param bool $include whether the given date is included or not
      */
-    public function __construct(protected string $date, protected bool $include = false)
-    {
-        $this->date = $date;
-        $this->include = $include;
+    public function __construct(
+        protected string $date,
+        protected bool $include = false
+    ) {
     }
 
     /**

@@ -61,7 +61,6 @@ class MinLength implements RuleInterface
      */
     public function __construct(protected int $length)
     {
-        $this->length = $length;
     }
 
     /**

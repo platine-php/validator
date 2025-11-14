@@ -61,7 +61,6 @@ class Equal implements RuleInterface
      */
     public function __construct(protected mixed $value)
     {
-        $this->value = $value;
     }
 
     /**

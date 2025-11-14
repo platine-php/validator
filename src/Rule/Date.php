@@ -61,7 +61,6 @@ class Date implements RuleInterface
      */
     public function __construct(protected string $format = 'Y-m-d')
     {
-        $this->format = $format;
     }
 
     /**

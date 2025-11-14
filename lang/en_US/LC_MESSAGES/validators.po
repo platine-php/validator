@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Platine Validator 1.0.0\n"
-"POT-Creation-Date: 2025-08-07 04:06+0100\n"
-"PO-Revision-Date: 2025-08-07 04:06+0100\n"
+"POT-Creation-Date: 2025-11-14 01:27+0100\n"
+"PO-Revision-Date: 2025-11-14 01:27+0100\n"
 "Last-Translator: Tony NGUEREZA <nguerezatony@gmail.com>\n"
 "Language-Team: Platine Team\n"
 "Language: en_US\n"
@@ -35,27 +35,27 @@ msgstr ""
 msgid "%s must contain alphanumeric characters, - and _"
 msgstr ""
 
-#: Rule/Date.php:93
+#: Rule/Date.php:86
 #, php-format
 msgid "%s must contain a correct date format [%s]!"
 msgstr ""
 
-#: Rule/DateAfter.php:102
+#: Rule/DateAfter.php:90
 #, php-format
 msgid "%s must be after or equal to the date [%s]!"
 msgstr ""
 
-#: Rule/DateAfter.php:109
+#: Rule/DateAfter.php:97
 #, php-format
 msgid "%s must be after the date [%s]!"
 msgstr ""
 
-#: Rule/DateBefore.php:102
+#: Rule/DateBefore.php:90
 #, php-format
 msgid "%s must be before or equal to the date [%s]!"
 msgstr ""
 
-#: Rule/DateBefore.php:109
+#: Rule/DateBefore.php:97
 #, php-format
 msgid "%s must be before the date [%s]!"
 msgstr ""
@@ -65,17 +65,17 @@ msgstr ""
 msgid "%s must be a valid email address!"
 msgstr ""
 
-#: Rule/Enum.php:96 Rule/InList.php:92
+#: Rule/Enum.php:98 Rule/InList.php:85
 #, php-format
 msgid "%s must be one of the following (%s)!"
 msgstr ""
 
-#: Rule/Equal.php:89
+#: Rule/Equal.php:82
 #, php-format
 msgid "%s must to be equal to [%s]!"
 msgstr ""
 
-#: Rule/ExactLength.php:92
+#: Rule/ExactLength.php:85
 #, php-format
 msgid "%s must contain exactly %d characters!"
 msgstr ""
@@ -100,34 +100,34 @@ msgstr ""
 msgid "%s must be an integer!"
 msgstr ""
 
-#: Rule/Matches.php:90
+#: Rule/Matches.php:83
 #, php-format
 msgid "%s must be identical to field %s!"
 msgstr ""
 
-#: Rule/Max.php:92
+#: Rule/Max.php:85
 #, php-format
 msgid "%s must be less or equal to [%s]!"
 msgstr ""
 
-#: Rule/MaxLength.php:92
+#: Rule/MaxLength.php:85
 #, php-format
 msgid "%s must contain at most %d characters!"
 msgstr ""
 
-#: Rule/Min.php:92
+#: Rule/Min.php:85
 #, php-format
 msgid "%s must be greather or equal to [%s]!"
 msgstr ""
 
-#: Rule/MinLength.php:86 Rule/Password.php:140
+#: Rule/MinLength.php:85 Rule/Password.php:140
 #, php-format
 msgid "%s must contain at least %d characters!"
 msgstr ""
 
-#: Rule/Natural.php:81
+#: Rule/Natural.php:89
 #, php-format
-msgid "%s must be a natural number (0, 1, 2, )!"
+msgid "%s must be a natural number started by %d !"
 msgstr ""
 
 #: Rule/NotEmpty.php:78
@@ -135,12 +135,12 @@ msgstr ""
 msgid "%s must not to be empty!"
 msgstr ""
 
-#: Rule/NotEqual.php:83
+#: Rule/NotEqual.php:82
 #, php-format
 msgid "%s must not to be equal to [%s]!"
 msgstr ""
 
-#: Rule/NotMatches.php:84
+#: Rule/NotMatches.php:83
 #, php-format
 msgid "%s must not to be identical to field %s!"
 msgstr ""
@@ -170,12 +170,12 @@ msgstr ""
 msgid "%s should include at least one special character!"
 msgstr ""
 
-#: Rule/Range.php:87
+#: Rule/Range.php:85
 #, php-format
 msgid "%s must be between %s and %s!"
 msgstr ""
 
-#: Rule/Regex.php:87
+#: Rule/Regex.php:86
 #, php-format
 msgid "%s does not use the correct format!"
 msgstr ""

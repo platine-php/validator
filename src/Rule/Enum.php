@@ -69,7 +69,6 @@ class Enum implements RuleInterface
      */
     public function __construct(protected string $enumClass)
     {
-        $this->enumClass = $enumClass;
     }
 
     /**
